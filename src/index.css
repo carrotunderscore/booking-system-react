@@ -1,0 +1,81 @@
+.register-form{
+  max-width: 800px;
+  margin: auto;
+  box-shadow:0 0 150px 4px rgba(0,0,0,0.06);
+}
+
+.register-main-div{
+  border-radius: 10px;
+  background-image: linear-gradient(to bottom right, rgb(125, 214, 122), rgb(97, 120, 182));
+}
+
+
+.register-main-h1{
+  background-image: linear-gradient(to bottom right, rgb(97, 120, 182), rgb(125, 214, 122), );
+  text-shadow: 1px 1px;
+  text-decoration: underline;
+  text-align: center;
+  padding: 1px;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius:200px;
+}
+input[type=text] {
+  padding:10px;
+  margin:10px 10px;
+  border-radius:50px;
+  width:90%;
+   
+}
+input[type=password] {
+  padding:10px;
+  margin:10px 10px;
+  border-radius:50px;
+  width:90%;
+  
+   
+}
+input[type=submit] {
+  padding:10px;
+  margin:10px 10px;
+  margin-bottom: 10%;
+  border-radius:50px;
+  width:90%;
+  
+   
+}
+
+.name-div{  
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border-radius:50px;
+  float: left;
+  width: 50%;
+  
+}
+.company-div{
+  width: 100%;
+  color: rgb(0, 0, 0);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-radius:50px;
+  float: right;
+  width: 50%;
+}
+
+.checkbox{
+  position: relative; /* to contain absolute elements */
+  padding-left:80px; /* free space for custom checkbox */
+  cursor: pointer;
+  transform: scale(5);
+  margin: 30px;
+}
