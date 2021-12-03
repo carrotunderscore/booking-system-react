@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+
 import { Link, BrowserRouter as Router } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage";
 
