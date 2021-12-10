@@ -1,0 +1,27 @@
+.background-primary {
+	background-color: #f3f3f3;
+}
+.background-secondary {
+	background-color: #cfd8dc;
+}
+.background-positive-primary {
+	background-color: #9fbceb;
+}
+.background-positive-secondary {
+	background-color: #123a7a;
+}
+.background-negative-primary {
+	background-color: #e4c3b7;
+}
+.background-negative-secondary {
+	background-color: #ad5a4e;
+}
+.extra-color {
+	color: #7bd7e0;
+}
+.text-color-light {
+	color: #fefffd;
+}
+.text-color-dark {
+	color: #7b8d93;
+}
