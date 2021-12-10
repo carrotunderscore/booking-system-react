@@ -1,15 +1,18 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import AdminPage from './pages/AdminPage';
 import RegisterPage from './pages/RegisterPage';
+import BookingPage from "./pages/BookingPage";
 
 export default function App() {
-  return (
-    <div className="App">
-      <h1>HEJ FRÅN APP.JS</h1>
-      <AdminPage/>  
-      <RegisterPage/>   
-    </div>
-  );
+    return (
+        <div className="App">
+            {/*<h1>HEJ FRÅN APP.JS</h1>*/}
+            {/*<AdminPage/>*/}
+            {/*<RegisterPage/>*/}
+            <BookingPage/>
+        </div>
+    );
 }
 
