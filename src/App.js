@@ -8,9 +8,9 @@ import BookingPage from "./pages/BookingPage";
 export default function App() {
 	return (
 		<div className="App">
-			{/*<h1>HEJ FRÅN APP.JS</h1>*/}
-			{/*<AdminPage/>*/}
-			{/*<RegisterPage/>*/}
+			{/* <h1>HEJ FRÅN APP.JS</h1>
+			<AdminPage/>
+			<RegisterPage/> */}
 			<BookingPage />
 		</div>
 	);
