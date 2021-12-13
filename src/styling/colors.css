@@ -1,27 +1,27 @@
 .background-primary {
-	background-color: #f3f3f3;
+	background-color: #F3F3F3;
 }
 .background-secondary {
-	background-color: #cfd8dc;
+	background-color: #CFD8DC;
 }
 .background-positive-primary {
-	background-color: #9fbceb;
+	background-color: #9FBCEB;
 }
 .background-positive-secondary {
-	background-color: #123a7a;
+	background-color: #123A7A;
 }
 .background-negative-primary {
-	background-color: #e4c3b7;
+	background-color: #E4C3B7;
 }
 .background-negative-secondary {
-	background-color: #ad5a4e;
+	background-color: #AD5A4E;
 }
 .extra-color {
-	color: #7bd7e0;
+	color: #7BD7E0;
 }
 .text-color-light {
-	color: #fefffd;
+	color: #FEFFFD;
 }
 .text-color-dark {
-	color: #7b8d93;
+	color: #7B8D93;
 }

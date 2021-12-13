@@ -1,6 +1,5 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import "../App.css";
 import { useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
@@ -8,16 +7,31 @@ import axios from "axios";
 
 export default function BookingPage() {
 	const { minDate, maxDate } = getMinAndMaxDate();
-	const dateTimeElement = useRef();
 
 	const customerID = "0"; //TODO: Gör så kundid hämtas från databasen eller token
 	const [dateTimeSelected, setDateTimeSelected] = useState("");
 	const [customerAdress, setCustomerAdress] = useState("");
 	const [serviceType, setServiceType] = useState({ value: "basic" });
 	const [customerMessage, setCustomerMessage] = useState("");
+	const [price, setPrice] = useState("2000");
 
 	function handleServiceTypeChange(e) {
 		setServiceType({ value: e.target.value });
+		switch (e.target.value) {
+			case "window":
+				setPrice("1000")
+				break;
+			case "basic":
+				setPrice("2000")
+				break;
+			case "top":
+				setPrice("3000")
+				break;
+			case "diamond":
+				setPrice("4000")
+				break;
+
+		}
 	}
 
 	function handleDateTime(dateTime) {
@@ -35,7 +49,7 @@ export default function BookingPage() {
 				startDateTime: dateTimeSelected,
 				adress: customerAdress,
 				serviceType: serviceType.value,
-				price: "1000",
+				price: price,
 				message: customerMessage,
 			})
 			.then((result) => {
@@ -66,6 +80,7 @@ export default function BookingPage() {
 									<Form.Control
 										type="text"
 										placeholder="KundID"
+										className="text-color-dark"
 										value={customerID}
 										disabled
 									/>
@@ -83,7 +98,7 @@ export default function BookingPage() {
 									<Form.Control
 										type="datetime-local"
 										placeholder="Date"
-										ref={dateTimeElement}
+										className="text-color-dark"
 										onChange={(event) =>
 											handleDateTime(event.target.value)
 										}
@@ -109,6 +124,7 @@ export default function BookingPage() {
 								<FloatingLabel
 									controlId="floatingInput"
 									label="Adress"
+									className="text-color-dark"
 								>
 									<Form.Control
 										type="text"
@@ -126,11 +142,13 @@ export default function BookingPage() {
 							>
 								<FloatingLabel
 									controlId="floatingSelect"
+									className="text-color-dark"
 									label="Service"
 								>
 									<Form.Select
 										value={serviceType.value}
 										aria-label="Service"
+										className="text-color-dark"
 										onChange={handleServiceTypeChange}
 									>
 										<option value="window">
@@ -152,23 +170,26 @@ export default function BookingPage() {
 							<Form.Group>
 								<FloatingLabel
 									controlId="floatingTextarea"
+									className="text-color-dark"
 									label="Meddelande"
 								>
 									<Form.Control
 										as="textarea"
 										placeholder="Lämna ett meddelande här"
-										style={{ height: "100px" }}
+										style={{height: "100px"}}
 										onChange={(e) =>
 											setCustomerMessage(e.target.value)
 										}
 									/>
 								</FloatingLabel>
 							</Form.Group>
+							<Card.Subtitle className="mt-3 text-color-dark">Price: {price}</Card.Subtitle>
 							<Form.Group>
+
 								<Button
 									type="submit"
 									variant="primary"
-									className="background-positive-secondary"
+									className="background-positive-secondary mt-3"
 								>
 									BOKA STÄDNING
 								</Button>
