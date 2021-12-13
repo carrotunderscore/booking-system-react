@@ -1,19 +1,23 @@
 /*
 RegisterPage.js----------------------------------------------------------------------------
 */
-
+.App{
+  background-color: rgb(90, 90, 223);
+}
 .register-form {
   max-width: 800px;
   margin: auto;
   box-shadow: 0 0 150px 4px rgba(0, 0, 0, 0.06);
   border: 1px solid #ccc;
   border-radius: 90px;
+  text-align: center;
+  background-image: linear-gradient(to bottom right, rgb(15, 63, 63), rgb(9, 188, 235));
 }
 
 
 .register-main-div {
   border-radius: 10px;
-  background-image: linear-gradient(to bottom right, rgb(15, 63, 63), rgb(9, 188, 235));
+  
 }
 
 .register-main-h1 {
@@ -37,41 +41,52 @@ input[type=password] {
   border-radius: 50px;
   width: 90%;
 }
-input[type=submit] {
+.register-submit {
   padding: 10px;
-  margin: 10px 10px;
+  margin: auto;
   margin-bottom: 10%;
   border-radius: 50px;
-  width: 90%;
+  width: 100%;
   background-color: #fefffd;
 }
 
 .name-div {
-  
-
-
+  padding-top: 3%;
+  margin: auto;
+  width: 30%
 }
 
 .company-div {
   margin: auto;
-  width: 41%
+  width: 30%;
 }
-
-.checkbox {
-  display: flex;
-  justify-content: center;}
+select{
+  background-color: #fefffd;
+  display: block;
+  margin: auto;
+  margin-bottom: 5%;
+  text-align: center;
+  border:1px solid black;
+  border-radius: 40%;
+  
+}
 
 /*
 AdminPage.js----------------------------------------------------------------------------
 */
 
 .admin-main-div {
-  background-color: rgb(217, 217, 228);
+  background-color: rgb(13, 13, 228);
+  
+}
+.register-customer-div{
   text-align: center;
 }
-
-.admin-booking-div {
-  display: inline-flex;
+.delete-customer-div{
+  text-align: center;
+}
+.book-customer-div{
+  text-align: center;
 }
 
 .register-label {
@@ -79,4 +94,38 @@ AdminPage.js--------------------------------------------------------------------
   margin-left: auto;
   margin-right: auto;
   width: 40%;
+}
+.error-message{
+  color: rgb(158, 1, 1);
+  margin: auto;
+}
+.admin-submit{
+  width: 20%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border-radius: 50px;
+  padding: 10px;
+}
+.password-div{
+  padding: 5%;
+  border: solid 2px rgb(43, 43, 44);
+  border-radius: 20px;
+  background-color: rgb(212, 207, 216);
+}
+
+/*
+DeleteForm.js----------------------------------------------------------------------------
+*/
+.delete-form {
+  padding: 1%;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 0 150px 4px rgba(0, 0, 0, 0.06);
+  border: 4px solid rgb(255, 0, 0);
+  border-radius: 90px;
+  text-align: center;
+  background-image: linear-gradient(to bottom right, rgb(15, 63, 63), rgb(9, 188, 235));
+}
+.delete-submit{
+  border-radius: 8px;
 }
