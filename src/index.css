@@ -1,9 +1,7 @@
 /*
 RegisterPage.js----------------------------------------------------------------------------
 */
-.App{
-  background-color: rgb(90, 90, 223);
-}
+
 .register-form {
   max-width: 800px;
   margin: auto;
@@ -76,7 +74,6 @@ AdminPage.js--------------------------------------------------------------------
 */
 
 .admin-main-div {
-  background-color: rgb(13, 13, 228);
   
 }
 .register-customer-div{
@@ -129,3 +126,26 @@ DeleteForm.js-------------------------------------------------------------------
 .delete-submit{
   border-radius: 8px;
 }
+
+/*
+showBookings.js----------------------------------------------------------------------------
+*/
+
+.bookings-main-div{
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.customer-bookings-box{
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+.customer-bookings-div{
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+}
+
