@@ -1,16 +1,14 @@
-import React from "react";
-
-import {Link, BrowserRouter as Router} from "react-router-dom";
-import RegisterPage from "./pages/RegisterPage";
-import LoginPage from "./pages/LoginPage";
+import React from 'react';
+import './App.css';
+import AdminPage from './pages/AdminPage';
+import RegisterPage from './pages/RegisterPage';
 
 export default function App() {
-    console.log("APP");
-    return (
-        <>
-            <div className="App">
-                <LoginPage/>
-            </div>
-        </>
-    );
+  return (
+    <div className="App">
+      <h1>HEJ FRÅN APP.JS</h1>
+      <AdminPage/>  
+      <RegisterPage/>   
+    </div>
+  );
 }

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import '../../src/index.css';
 
 
-
+// Add to database ------------------------------------------------
 
 export default function RegisterPage() {
     function handleSubmit() {
