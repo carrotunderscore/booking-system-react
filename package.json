@@ -21,6 +21,7 @@
     "rc-time-picker": "^3.7.3",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.3",
+    "react-cookie": "^4.1.1",
     "react-dom": "^17.0.2",
     "react-dropdown-timepicker": "^1.0.4",
     "react-hook-form": "^7.21.2",
@@ -29,6 +30,7 @@
     "react-time-picker": "^4.4.4",
     "react-timepicker": "^2.0.2",
     "sequelize": "^6.12.0-alpha.1",
+    "simple-gdpr": "^1.1.5",
     "web-vitals": "^1.1.2",
     "yup": "^0.32.11"
   },
