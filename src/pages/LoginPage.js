@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import '../../src/index.css';
 import axios from "axios";
 import * as yup from "yup";
@@ -6,9 +6,14 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {useForm} from "react-hook-form";
 import SimpleGDPR from "simple-gdpr";
 import 'simple-gdpr/dist/simplegdpr.min.css';
-import {CookiesProvider, useCookies} from "react-cookie";
+import {useCookies} from "react-cookie";
 import Header from "../compontents/Header";
 import Footer from "../compontents/Footer";
+import {Form} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import "../styling/colors.css";
+import "../styling/LoginPage.css";
+import backgroundImage from "../images/bg.jpeg"
 
 const schema = yup.object().shape({
     mail: yup.string().required("Mail is required."),
@@ -17,10 +22,10 @@ const schema = yup.object().shape({
 
 export default function LoginPage() {
     // Cookies
-    const [cookies, setCookie, removeCookie] = useCookies(["gdpr"]);
+    const [cookies, setCookie] = useCookies(["gdpr"]);
 
     function setGDPRCookie() {
-        setCookie("gdpr", "agreed", { path: '/' });
+        setCookie("gdpr", "agreed", {path: '/'});
     }
 
     // GDPR popup
@@ -44,7 +49,7 @@ export default function LoginPage() {
     const submitForm = (data) => {
         console.log(data)
         axios.post("http://localhost:3001/login", data)
-            .then(( response) => {
+            .then((response) => {
                 console.log(response.data)
                 // TODO: This is not used... yet(?)
                 if (response.data === "OK") {
@@ -57,26 +62,34 @@ export default function LoginPage() {
 
     return (
         <div className="login-main-div">
-            <div className="login-main-h1">
-                <h1>Login</h1>
-            </div>
-            <form onSubmit={handleSubmit(submitForm)} className="login-form" action="../../post" method="post">
-                <div className="mail-div">
+            <div className="bg-div">
+                <div className="loginFormDiv w-25 mx-auto flex p-3 background-positive-primary">
+                    <Form onSubmit={handleSubmit(submitForm)} className="login-form p-3" action="../../post"
+                          method="post">
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type="email"
+                                          placeholder="" {...register("mail", {required: "Du måste fylla i en email adress."})} />
+                            <p className="error-message"> {errors.username?.message}</p>
+                        </Form.Group>
 
-                    Mail:
-                    <input type="email" name="mail" {...register('mail')} placeholder="Mail..."/>
-                    <p className="error-message"> {errors.username?.message}</p>
-
-                    Password:
-                    <input type="password"
-                           name="password" {...register('password', {required: "You must enter a password."})} />
-                    <p className="error-message"> {errors.password?.message}</p>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Lösenord</Form.Label>
+                            <Form.Control type="password"
+                                          placeholder="" {...register("password", {required: "Du måste fylla i lösenord."})} />
+                            <p className="error-message"> {errors.password?.message}</p>
+                        </Form.Group>
+                        <div className="col p-2 text-center">
+                            <Button variant="primary" type="submit" className="buttonLogin background-positive-secondary">
+                                Logga in
+                            </Button>
+                            <Button variant="primary" type="button" className="buttonRegister background-positive-secondary">
+                                Registrera
+                            </Button>
+                        </div>
+                    </Form>
                 </div>
-
-                <input type="submit" value="Submit" className="register-submit"/>
-
-
-            </form>
+            </div>
         </div>
     )
 }
