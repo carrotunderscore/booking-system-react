@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import '../../src/index.css';
 import axios from "axios";
 import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useForm} from "react-hook-form";
+import SimpleGDPR from "simple-gdpr";
+import 'simple-gdpr/dist/simplegdpr.min.css';
+import {CookiesProvider, useCookies} from "react-cookie";
 import Header from "../compontents/Header";
 import Footer from "../compontents/Footer";
 
@@ -13,6 +16,27 @@ const schema = yup.object().shape({
 });
 
 export default function LoginPage() {
+    // Cookies
+    const [cookies, setCookie, removeCookie] = useCookies(["gdpr"]);
+
+    function setGDPRCookie() {
+        setCookie("gdpr", "agreed", { path: '/' });
+    }
+
+    // GDPR popup
+    if (cookies.gdpr === undefined) {
+        const gdprNotice = new SimpleGDPR({
+            theme: 'modern',
+            icons: false,
+            animation: 'fade',
+            float: 'bottom-right',
+            callback: () => {
+                setGDPRCookie()
+                gdprNotice.close()
+            },
+        });
+    }
+
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(schema),
     });
@@ -22,6 +46,7 @@ export default function LoginPage() {
         axios.post("http://localhost:3001/login", data)
             .then(( response) => {
                 console.log(response.data)
+                // TODO: This is not used... yet(?)
                 if (response.data === "OK") {
                     console.log("Success!")
                     alert("DAMN IT WORKS!")
