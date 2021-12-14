@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
 import axios from "axios";
+import Header from "../components/Header";
 
 export default function BookingPage() {
 	const { minDate, maxDate } = getMinAndMaxDate();
@@ -60,6 +61,7 @@ export default function BookingPage() {
 	return (
 		<>
 			<div className="d-flex justify-content-center my-5">
+				<Header/>
 				<Card className="text-center w-50">
 					<Card.Header className="background-positive-primary text-color-light">
 						Booking

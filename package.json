@@ -24,7 +24,7 @@
     "react-dom": "^17.0.2",
     "react-dropdown-timepicker": "^1.0.4",
     "react-hook-form": "^7.21.2",
-    "react-router-dom": "^6.0.2",
+    "react-router-dom": "^6.1.1",
     "react-scripts": "4.0.3",
     "react-time-picker": "^4.4.4",
     "react-timepicker": "^2.0.2",

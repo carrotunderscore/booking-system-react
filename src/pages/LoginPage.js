@@ -4,8 +4,8 @@ import axios from "axios";
 import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useForm} from "react-hook-form";
-import Header from "../compontents/Header";
-import Footer from "../compontents/Footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const schema = yup.object().shape({
     mail: yup.string().required("Mail is required."),
@@ -32,6 +32,7 @@ export default function LoginPage() {
 
     return (
         <div className="login-main-div">
+            <Header/>
             <div className="login-main-h1">
                 <h1>Login</h1>
             </div>
