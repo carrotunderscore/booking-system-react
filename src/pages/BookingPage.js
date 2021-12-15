@@ -1,9 +1,9 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { useRef, useState } from "react";
-import Form from "react-bootstrap/Form";
-import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
+import { useState } from "react";
+import {FloatingLabel, Form} from "react-bootstrap";
 import axios from "axios";
+import Header from "../components/Header";
 
 export default function BookingPage() {
 	const { minDate, maxDate } = getMinAndMaxDate();
@@ -30,6 +30,8 @@ export default function BookingPage() {
 			case "diamond":
 				setPrice("4000")
 				break;
+			default:
+				break;
 
 		}
 	}
@@ -54,12 +56,13 @@ export default function BookingPage() {
 			})
 			.then((result) => {
 				alert(result.data);
-			});
+			}).catch(e => console.log(e));
 	}
 
 	return (
 		<>
 			<div className="d-flex justify-content-center my-5">
+				<Header/>
 				<Card className="text-center w-50">
 					<Card.Header className="background-positive-primary text-color-light">
 						Booking

@@ -7,13 +7,10 @@ import {useForm} from "react-hook-form";
 import SimpleGDPR from "simple-gdpr";
 import 'simple-gdpr/dist/simplegdpr.min.css';
 import {useCookies} from "react-cookie";
-import Header from "../compontents/Header";
-import Footer from "../compontents/Footer";
 import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "../styling/colors.css";
 import "../styling/LoginPage.css";
-import backgroundImage from "../images/bg.jpeg"
 
 const schema = yup.object().shape({
     mail: yup.string().required("Mail is required."),
@@ -80,10 +77,12 @@ export default function LoginPage() {
                             <p className="error-message"> {errors.password?.message}</p>
                         </Form.Group>
                         <div className="col p-2 text-center">
-                            <Button variant="primary" type="submit" className="buttonLogin background-positive-secondary">
+                            <Button variant="primary" type="submit"
+                                    className="buttonLogin background-positive-secondary">
                                 Logga in
                             </Button>
-                            <Button variant="primary" type="button" className="buttonRegister background-positive-secondary">
+                            <Button variant="primary" type="button"
+                                    className="buttonRegister background-positive-secondary">
                                 Registrera
                             </Button>
                         </div>
