@@ -1,5 +1,5 @@
 import React from "react";
-import '../../src/index.css';
+import '../../src/stylings/registerForm.css';
 import axios from "axios";
 import { useState } from "react";
 import * as yup from "yup";
@@ -34,8 +34,6 @@ export default function RegisterForm() {
 
     return (
         <div className="register-main-div">
-            <div className="register-main-h1">
-            </div>
             <form onSubmit={handleSubmit(submitForm)} className="register-form"
                 action="../../post" method="post">
                     <h1>Register</h1>

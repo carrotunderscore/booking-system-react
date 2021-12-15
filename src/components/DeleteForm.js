@@ -1,5 +1,5 @@
 import React from "react";
-import '../../src/index.css';
+import '../../src/stylings/deleteForm.css';
 import axios from "axios";
 import { useState } from "react";
 import * as yup from "yup";
@@ -47,7 +47,7 @@ export default function DeleteForm() {
                 <p className="error-message">{errors.socialID?.message}</p>
 
                 Password:
-                <input type="password" name="password"
+                <input type="password" name="password" className="password-delete"
                     {...register('password', { required: "You must enter a password." })} />
                 <p className="error-message">{errors.password?.message}</p>
 

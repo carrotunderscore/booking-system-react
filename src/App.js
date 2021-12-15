@@ -9,7 +9,6 @@ export default function App() {
     <div className="App">
       <h1>HEJ FRÅN APP.JS</h1>
       <AdminPage/> 
-      <ShowBookings/> 
     </div>
   );
 }

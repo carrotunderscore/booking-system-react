@@ -1,0 +1,31 @@
+/*
+DeleteForm.js----------------------------------------------------------------------------
+*/
+.delete-form {
+    border: 3px solid #9fbceb;
+    border-top: 70px solid #9fbceb;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f3f3f3;
+  }
+  .delete-submit{
+    border-radius: 8px;
+  }
+  input[type=text] {
+    padding: 10px;
+    margin: 10px 10px;
+    border-radius: 40px 10px;
+    width: 40%;
+    background-color: #9fbceb;
+}
+
+input[type=password] {
+    padding: 10px;
+    margin: 10px 10px;
+    border-radius: 40px 10px;
+    width: 90%;
+    background-color: #9fbceb;
+}
+.password-delete{
+    width: 40%;
+}
