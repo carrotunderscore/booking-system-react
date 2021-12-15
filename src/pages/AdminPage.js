@@ -1,5 +1,5 @@
 import React from "react";
-import '../../src/index.css';
+import '../../src/stylings/adminPage.css';
 import { useState } from "react";
 import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
@@ -10,7 +10,7 @@ import axios from "axios";
 import RegisterForm from "../components/registerForm";
 import BookCleaning from "../components/bookCleaning";
 import DeleteForm from "../components/DeleteForm";
-
+import ShowBookings from "./showBookings";
 
 
 
@@ -32,6 +32,11 @@ export default function AdminPage() {
         if(showBooking === true){setShowBooking(false)}
         else{setShowBooking(true)}
     }
+    const [showBookingList, setShowBookingList] = React.useState(false)
+    const onClickBookingList = () => {
+        if(showBookingList === true){setShowBookingList(false)}
+        else{setShowBookingList(true)}
+    }
 
     return (
         <div className="admin-main-div">
@@ -51,6 +56,12 @@ export default function AdminPage() {
                 <h1>Book customer</h1>
                 <input type="submit" value="show-booking" onClick={onClickBooking} />
                 {showBooking !== false ? <BookCleaning /> : null}
+            </div>
+
+            <div className="book-customer-div">
+                <h1>Book customer</h1>
+                <input type="submit" value="show-booking" onClick={onClickBookingList} />
+                {showBookingList !== false ? <ShowBookings /> : null}
             </div>
         </div>
     )
