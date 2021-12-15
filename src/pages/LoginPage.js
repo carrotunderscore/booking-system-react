@@ -11,6 +11,8 @@ import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "../styling/colors.css";
 import "../styling/LoginPage.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const schema = yup.object().shape({
     mail: yup.string().required("Mail is required."),
@@ -58,37 +60,43 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="login-main-div">
-            <div className="bg-div">
-                <div className="loginFormDiv w-25 mx-auto flex p-3 background-positive-primary">
-                    <Form onSubmit={handleSubmit(submitForm)} className="login-form p-3" action="../../post"
-                          method="post">
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email"
-                                          placeholder="" {...register("mail", {required: "Du måste fylla i en email adress."})} />
-                            <p className="error-message"> {errors.username?.message}</p>
-                        </Form.Group>
+        <>
+            <Header/>
 
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Lösenord</Form.Label>
-                            <Form.Control type="password"
-                                          placeholder="" {...register("password", {required: "Du måste fylla i lösenord."})} />
-                            <p className="error-message"> {errors.password?.message}</p>
-                        </Form.Group>
-                        <div className="col p-2 text-center">
-                            <Button variant="primary" type="submit"
-                                    className="buttonLogin background-positive-secondary">
-                                Logga in
-                            </Button>
-                            <Button variant="primary" type="button"
-                                    className="buttonRegister background-positive-secondary">
-                                Registrera
-                            </Button>
-                        </div>
-                    </Form>
+            <div className="login-main-div">
+                <div className="bg-div">
+                    <div className="loginFormDiv w-25 mx-auto flex p-3 background-positive-primary">
+                        <Form onSubmit={handleSubmit(submitForm)} className="login-form p-3" action="../../post"
+                              method="post">
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label>Email</Form.Label>
+                                <Form.Control type="email"
+                                              placeholder="" {...register("mail", {required: "Du måste fylla i en email adress."})} />
+                                <p className="error-message"> {errors.username?.message}</p>
+                            </Form.Group>
+
+                            <Form.Group className="mb-3" controlId="formBasicPassword">
+                                <Form.Label>Lösenord</Form.Label>
+                                <Form.Control type="password"
+                                              placeholder="" {...register("password", {required: "Du måste fylla i lösenord."})} />
+                                <p className="error-message"> {errors.password?.message}</p>
+                            </Form.Group>
+                            <div className="col p-2 text-center">
+                                <Button variant="primary" type="submit"
+                                        className="buttonLogin background-positive-secondary">
+                                    Logga in
+                                </Button>
+                                <Button variant="primary" type="button"
+                                        className="buttonRegister background-positive-secondary">
+                                    Registrera
+                                </Button>
+                            </div>
+                        </Form>
+                    </div>
                 </div>
+
+                <Footer/>
             </div>
-        </div>
+        </>
     )
 }
