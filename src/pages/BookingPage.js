@@ -1,8 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { useRef, useState } from "react";
-import Form from "react-bootstrap/Form";
-import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
+import { useState } from "react";
+import {FloatingLabel, Form} from "react-bootstrap";
 import axios from "axios";
 import Header from "../components/Header";
 
@@ -31,6 +30,8 @@ export default function BookingPage() {
 			case "diamond":
 				setPrice("4000")
 				break;
+			default:
+				break;
 
 		}
 	}
@@ -55,7 +56,7 @@ export default function BookingPage() {
 			})
 			.then((result) => {
 				alert(result.data);
-			});
+			}).catch(e => console.log(e));
 	}
 
 	return (

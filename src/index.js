@@ -6,18 +6,14 @@ import {BrowserRouter} from "react-router-dom";
 import {CookiesProvider} from "react-cookie";
 
 ReactDOM.render(
-  //<React.StrictMode>
-    <CookiesProvider>
-    <App />
-    </CookiesProvider>,
-  //</React.StrictMode>,
-  document.getElementById("root")
-    <React.StrictMode>
-        <BrowserRouter>
+    //<React.StrictMode>
+    <BrowserRouter>
+        <CookiesProvider>
             <App/>
-        </BrowserRouter>
-    </React.StrictMode>,
-    document.getElementById("root")
-);
+        </CookiesProvider>
+    </BrowserRouter>,
+//</React.StrictMode>,
+    document.getElementById("root"))
+;
 
 
