@@ -6,6 +6,7 @@ import RegisterPage from "./pages/RegisterPage";
 import BookingPage from "./pages/BookingPage";
 import LoginPage from "./pages/LoginPage";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 
 export default function App() {
@@ -13,12 +14,12 @@ export default function App() {
         <div className="App">
             <Header/>
             <Routes>
-                
                 <Route exact path="/" element={<LoginPage/>}/>
                 <Route exact path="/book" element={<BookingPage/>}/>
                 <Route exact path="/admin" element={<AdminPage/>}/>
                 <Route exact path="/register" element={<RegisterPage/>}/>
             </Routes>
+            <Footer/>
         </div>
     );
 }
