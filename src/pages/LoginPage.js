@@ -61,7 +61,6 @@ export default function LoginPage() {
 
     return (
         <>
-            <Header/>
 
             <div className="login-main-div">
                 <div className="bg-div">

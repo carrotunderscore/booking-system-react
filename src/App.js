@@ -5,12 +5,15 @@ import AdminPage from "./pages/AdminPage";
 import RegisterPage from "./pages/RegisterPage";
 import BookingPage from "./pages/BookingPage";
 import LoginPage from "./pages/LoginPage";
+import Header from "./components/Header";
 
 
 export default function App() {
     return (
         <div className="App">
+            <Header/>
             <Routes>
+                
                 <Route exact path="/" element={<LoginPage/>}/>
                 <Route exact path="/book" element={<BookingPage/>}/>
                 <Route exact path="/admin" element={<AdminPage/>}/>
