@@ -11,8 +11,6 @@ import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "../styling/colors.css";
 import "../styling/LoginPage.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 const schema = yup.object().shape({
     mail: yup.string().required("Mail is required."),
@@ -50,18 +48,20 @@ export default function LoginPage() {
         axios.post("http://localhost:3001/login", data)
             .then((response) => {
                 console.log(response.data)
-                // TODO: This is not used... yet(?)
-                if (response.data === "OK") {
+                document.cookie = `auth=${response.data}`
+                //localStorage.setItem('key', 'value')
+                //localStorage.setItem("auth", response.data)
+                //localStorage.setItem("auth", JSON.stringify(response.data))
+
+                /*if (response.data === "OK") {
                     console.log("Success!")
-                    alert("DAMN IT WORKS!")
-                }
+                }*/
             })
             .catch(errors => (console.log(errors)))
     }
 
     return (
         <>
-
             <div className="login-main-div">
                 <div className="bg-div">
                     <div className="loginFormDiv w-25 mx-auto flex p-3 background-positive-primary">
@@ -93,8 +93,6 @@ export default function LoginPage() {
                         </Form>
                     </div>
                 </div>
-
-                
             </div>
         </>
     )
