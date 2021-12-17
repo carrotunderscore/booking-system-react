@@ -5,6 +5,7 @@ showBookings.js-----------------------------------------------------------------
 .bookings-main-div{
     margin: 5px;
     border-radius: 5px;
+    overflow: 'auto';
   }
   .customer-bookings-box{
     border: 3px solid #9fbceb;
