@@ -13,10 +13,13 @@ export default function ShowBookings() {
     const [bookingsList, setbookingsList] = useState([]);
 
     const getBookings = () => {
-        axios.get("http://localhost:3001/getBookings").then((response) => {
+        axios.get("http://localhost:3001/getBookings")
+        .then((response) => {
             setbookingsList(response.data)
             console.log(response.data);
-        });
+        }).catch(error => {
+            console.log(error);
+        })
     };
 
     return (

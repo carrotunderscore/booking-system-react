@@ -5,8 +5,11 @@ RegisterPage.js-----------------------------------------------------------------
 .register-main-div {
     border: 3px solid #9fbceb;
     border-top: 70px solid #9fbceb;
-    margin: 10px;
+    border-bottom: none;
     background-color: #f3f3f3;
+    overflow: 'auto';
+    margin-bottom: 5%;
+    padding-left: 50px;
 }
 
 input[type=text] {
