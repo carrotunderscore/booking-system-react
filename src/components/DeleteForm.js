@@ -22,7 +22,7 @@ export default function DeleteForm() {
         const areYouSure = window.confirm('Are you sure you want to delete user?')
         if (areYouSure === true) {
             console.log(data)
-            axios.delete(`http://localhost:3001/delete/${data.email}`)
+            axios.delete(`http://localhost:3001/deleteCustomer/${data.email}`)
                 .then(() => {
                     console.log("Success!")
                 })
