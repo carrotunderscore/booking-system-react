@@ -32,13 +32,23 @@ export default function ShowBookings() {
                         <div className="customer-bookings-box">
                             <h3>Name: {booking.first_name + " " + booking.last_name}</h3>
                             <h4>Adress: {booking.adress}</h4>
-                            <h4>Date: {booking.start_date_time}</h4>
+                            <h4>Date: {
+                            booking.start_date_time.split("T").map((line, index) => (
+                                (index === 1) ? 
+                                <div>{line.substr(0, 5)}</div> :
+                                <div>{line.substr(0, 10)}</div>
+                            ))}</h4>
+                            
                             <h4>E-mail: {booking.mail}</h4>
                             <h4>Service: {booking.service_type}</h4>
                             <h4>Price: {booking.price} KR</h4>
                             <h4>Message: {booking.message}</h4>
 
-                            <h4>Status: {booking.status}</h4>
+                            <h4>Status: {
+                            (booking.status === 1) ? 
+                            <div> Done </div> :
+                            <div> Not started</div>
+                            }</h4>
 
                             <h4>{
                                 (booking.is_company === 0) ?
