@@ -4,7 +4,9 @@ showBookings.js-----------------------------------------------------------------
 
 .bookings-main-div{
     margin: 5px;
+    margin-right: 20%;
     border-radius: 5px;
+    overflow: 'auto';
   }
   .customer-bookings-box{
     border: 3px solid #9fbceb;
@@ -30,8 +32,8 @@ showBookings.js-----------------------------------------------------------------
     border-radius: 40px 10px;
     margin: 3px;
     padding: 10px;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
     color: #123a7a;
     font-style: italic;
   }

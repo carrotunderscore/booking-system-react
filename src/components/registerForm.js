@@ -12,8 +12,9 @@ export default function RegisterForm() {
         firstName: yup.string().required("First name is required"),
         lastName: yup.string().required("Last name is required"),
         email: yup.string().email().required("Email is required"),
-        phoneNumber: yup.number().required("Email is required"),
+        phoneNumber: yup.number().test('len', 'Max 6 numbers', (val) => val.toString().length <= 10).required(),
         socialID: yup.number().required("Social ID is required"),
+        companyName: yup.string(),
         address: yup.string().required("Address is required"),
         password: yup.string().min(6).max(40).required("Passwords must be identical"),
         repeatPassword: yup.string().oneOf([yup.ref("password"), null], 'Passwords must match'),
@@ -76,7 +77,8 @@ export default function RegisterForm() {
                     <p className="error-message">{errors.confirmPassword && "Passwords must be identical"}</p>
 
                     Company name (Optional):
-                    <input type="text" name="companyName" />
+                    <input type="text" name="companyName" 
+                    {...register('companyName')}  />
 
                     Address:
                     <input type="text" name="address"
