@@ -11,9 +11,6 @@ export default function HomePage() {
     const [customer, setCustomer] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
-
-
-
     const getCustomerByEmail = () => {
         axios
             .post("http://localhost:3001/getcustomer", {customerEmail: customerEmail})

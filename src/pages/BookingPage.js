@@ -1,13 +1,17 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {FloatingLabel, Form} from "react-bootstrap";
 import axios from "axios";
+import getEmailFromToken from "../utils/CustomerUtils";
+import {Navigate} from "react-router-dom";
 
 export default function BookingPage() {
+    const customerEmail = getEmailFromToken();
     const {minDate, maxDate} = getMinAndMaxDate();
 
-    const customerID = "0"; //TODO: Gör så kundid hämtas från databasen eller token
+    const [customer, setCustomer] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
     const [dateTimeSelected, setDateTimeSelected] = useState("");
     const [customerAdress, setCustomerAdress] = useState("");
     const [serviceType, setServiceType] = useState({value: "basic"});
@@ -46,7 +50,7 @@ export default function BookingPage() {
 
         axios
             .post("http://localhost:3001/bookcleaning", {
-                customerID: customerID,
+                customerID: customer.customer_id,
                 startDateTime: dateTimeSelected,
                 adress: customerAdress,
                 serviceType: serviceType.value,
@@ -56,6 +60,26 @@ export default function BookingPage() {
             .then((result) => {
                 alert(result.data);
             }).catch(e => console.log(e));
+    }
+
+    const getCustomerByEmail = () => {
+        axios
+            .post("http://localhost:3001/getcustomer", {customerEmail: customerEmail})
+            .then((response) => {
+                setCustomer(response.data[0]);
+                setIsLoading(false);
+            });
+    }
+    useEffect(() => {
+        getCustomerByEmail();
+    }, []);
+
+    if (customerEmail == null) {
+        return <Navigate to="/"/>
+    }
+
+    if (isLoading) {
+        return <></>;
     }
 
     return (
@@ -82,7 +106,7 @@ export default function BookingPage() {
                                         type="text"
                                         placeholder="KundID"
                                         className="text-color-dark"
-                                        value={customerID}
+                                        value={customer.customer_id}
                                         disabled
                                     />
                                 </FloatingLabel>

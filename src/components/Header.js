@@ -13,7 +13,7 @@ class Header extends Component {
                 <div className="Header column container-fluid background-positive-primary text-color-light pt-1">
                     <Row>
                         <Col>
-                            <h1 style={{fontFamily: "'Poppins', sans-serif"}}>Städfirman AB</h1>
+                            <h1 className="text-color-light" style={{fontFamily: "'Poppins', sans-serif"}}>Städfirman AB</h1>
                         </Col>
 
                         <Col/>
