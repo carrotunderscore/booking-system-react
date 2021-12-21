@@ -22,7 +22,7 @@ export default function DeleteForm() {
         const areYouSure = window.confirm('Are you sure you want to delete user?')
         if (areYouSure === true) {
             console.log(data)
-            axios.delete(`http://localhost:3001/deleteCustomer/${data.email}`)
+            axios.delete(`http://localhost:3001/deleteCustomer/${data.email + ":" + data.socialID + ":" + data.password}`)
                 .then(() => {
                     console.log("Success!")
                 })
@@ -37,17 +37,17 @@ export default function DeleteForm() {
                 action="../../post" method="post">
 
                 E-mail:
-                <input type="text" name="email"
+                <input className="delete-input-form" type="text" name="email"
                     {...register('email')} />
                 <p className="error-message">{errors.email?.message}</p>
 
                 Personal ID / Company ID:
-                <input type="text" name="socialID"
+                <input type="text" name="socialID" className="delete-input-form"
                     {...register('socialID')} />
                 <p className="error-message">{errors.socialID?.message}</p>
 
                 Password:
-                <input type="password" name="password" className="password-delete"
+                <input type="password" name="password" className="delete-input-form"
                     {...register('password', { required: "You must enter a password." })} />
                 <p className="error-message">{errors.password?.message}</p>
 

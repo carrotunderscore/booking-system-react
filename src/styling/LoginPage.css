@@ -15,7 +15,7 @@
 /*}*/
 
 html {
-
+    overflow: 'auto';
 }
 
 body {

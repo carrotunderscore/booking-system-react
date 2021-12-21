@@ -40,60 +40,60 @@ export default function RegisterForm() {
                     <h1>Register</h1>
                 <div className="name-div">
                     First name:
-                    <input type="text" name="firstName"
+                    <input className="register-form-field" type="text" name="firstName"
                         {...register('firstName')} placeholder="First Name..." />
                     <p className="error-message">{errors.firstName?.message}</p>
 
                     Last name:
-                    <input type="text" name="lastName"
+                    <input className="register-form-field" type="text" name="lastName"
                         {...register('lastName')} />
                     <p className="error-message">{errors.lastName?.message}</p>
 
                     E-mail:
-                    <input type="text" name="email"
+                    <input className="register-form-field" type="text" name="email"
                         {...register('email')} />
                     <p className="error-message">{errors.email?.message}</p>
 
                     Phone number:
-                    <input type="text" name="phoneNumber"
+                    <input  className="register-form-field" type="text" name="phoneNumber"
                         {...register('phoneNumber')} />
                     <p className="error-message">{errors.phoneNumber?.message}</p>
 
                     Personal ID / Company ID:
-                    <input type="text" name="socialID"
+                    <input className="register-form-field" type="text" name="socialID"
                         {...register('socialID')} />
                     <p className="error-message">{errors.socialID?.message}</p>
 
                 </div>
                 <div className="company-div">
                     Password:
-                    <input type="password" name="password"
+                    <input className="register-form-field" type="password" name="password"
                         {...register('password', { required: "You must enter a password." })} />
                     <p className="error-message">{errors.password?.message}</p>
 
                     Repeat password:
-                    <input type="password" name="repeatPassword"
+                    <input className="register-form-field" type="password" name="repeatPassword"
                         {...register('password', { required: "Passwords must be identical." })} />
                     <p className="error-message">{errors.confirmPassword && "Passwords must be identical"}</p>
 
                     Company name (Optional):
-                    <input type="text" name="companyName" 
+                    <input className="register-form-field" type="text" name="companyName" 
                     {...register('companyName')}  />
 
                     Address:
-                    <input type="text" name="address"
+                    <input className="register-form-field" type="text" name="address"
                         {...register('address')} />
                     <p className="error-message">{errors.address?.message}</p>
 
                     Customer-type
-                    <select name="customerType" id="customer-type"
+                    <select className="customerType" name="customerType" id="customer-type"
                         {...register('customerType')}>
                         <option value="0">Company</option>
                         <option value="1">Private</option>
                     </select>
                     <p>{errors.customerType?.message}</p>
 
-                    <input type="submit" value="Submit" className="register-submit" />
+                    <input className="register-form-field" type="submit" value="Submit" className="register-submit" />
                 </div>
 
             </form >
