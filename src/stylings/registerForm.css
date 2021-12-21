@@ -11,12 +11,18 @@ RegisterPage.js-----------------------------------------------------------------
     margin-bottom: 5%;
     padding-left: 50px;
 }
-
+.register-form-field{
+    padding: 10px;
+    margin: 10px 10px;
+    border-radius: 40px 10px;
+    width: 50%;
+}
 .name-div {
     padding: 10px;
     margin: 10px 10px;
     border-radius: 40px 10px;
     width: 90%;
+    
 }
 
 .company-div {
