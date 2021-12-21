@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import '../../src/index.css';
 import axios from "axios";
 import * as yup from "yup";
@@ -20,7 +20,8 @@ const schema = yup.object().shape({
 });
 
 export default function LoginPage() {
-    const customerEmail = getEmailFromToken();
+    const [customerEmail, setCustomerEmail] = useState(getEmailFromToken());
+
 
     // Cookies
     const [cookies, setCookie] = useCookies(["gdpr"]);
@@ -51,8 +52,9 @@ export default function LoginPage() {
         console.log(data)
         axios.post("http://localhost:3001/login", data)
             .then((response) => {
-                console.log(response.data)
-                document.cookie = `auth=${response.data}`
+                console.log(response.data);
+                document.cookie = `auth=${response.data}`;
+                setCustomerEmail(getEmailFromToken());
                 //localStorage.setItem('key', 'value')
                 //localStorage.setItem("auth", response.data)
                 //localStorage.setItem("auth", JSON.stringify(response.data))
