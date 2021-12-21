@@ -67,14 +67,14 @@ export default function LoginPage() {
                     <div className="loginFormDiv w-25 mx-auto flex p-3 background-positive-primary">
                         <Form onSubmit={handleSubmit(submitForm)} className="login-form p-3" action="../../post"
                               method="post">
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Group className="mb-3 text-color-light" controlId="formBasicEmail">
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control type="email"
                                               placeholder="" {...register("mail", {required: "Du måste fylla i en email adress."})} />
                                 <p className="error-message"> {errors.username?.message}</p>
                             </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Group className="mb-3 text-color-light" controlId="formBasicPassword">
                                 <Form.Label>Lösenord</Form.Label>
                                 <Form.Control type="password"
                                               placeholder="" {...register("password", {required: "Du måste fylla i lösenord."})} />
