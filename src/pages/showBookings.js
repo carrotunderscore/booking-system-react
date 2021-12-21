@@ -24,15 +24,15 @@ export default function ShowBookings() {
 
     return (
         <div className="bookings-main-div">
-            <button onClick={getBookings}>Show bookings</button>
+            <button onClick={getBookings}>Visa bokningar</button>
             {bookingsList.map((booking, index) => {
                 return (
                     <div className="customer-bookings-div">
                       
                         <div className="customer-bookings-box">
-                            <h3 className="booking-field" >Name: {booking.first_name + " " + booking.last_name}</h3>
+                            <h3 className="booking-field" >Namn: {booking.first_name + " " + booking.last_name}</h3>
                             <h4 className="booking-field">Adress: {booking.adress}</h4>
-                            <h4 className="booking-field">Date: {
+                            <h4 className="booking-field">Datum: {
                             booking.start_date_time.split("T").map((line, index) => (
                                 (index === 1) ? 
                                 <div>{line.substr(0, 5)}</div> :
@@ -41,22 +41,22 @@ export default function ShowBookings() {
                             
                             <h4 className="booking-field">E-mail: {booking.mail}</h4>
                             <h4 className="booking-field">Service: {booking.service_type}</h4>
-                            <h4 className="booking-field">Price: {booking.price} KR</h4>
-                            <h4 className="booking-field"> Message: {booking.message}</h4>
+                            <h4 className="booking-field">Pris: {booking.price} KR</h4>
+                            <h4 className="booking-field"> Meddelande: {booking.message}</h4>
 
                             <h4 className="booking-field">Status: {
                             (booking.status === 1) ? 
-                            <div> Done </div> :
-                            <div> Not started</div>
+                            <div> Färdig </div> :
+                            <div> Inte påbörjad</div>
                             }</h4>
 
                             <h4 className="booking-field">{
                                 (booking.is_company === 0) ?
                                     <div className="alert alert-danger" role="alert">
-                                        Customer-type: Private
+                                        Kund-type: Privat
                                     </div> :
-                                    <div> Customer-type: Company
-                                        <h4>Organisation-number: {booking.org_number}</h4>
+                                    <div> Kund-type: Företag
+                                        <h4>Organisations-nummer: {booking.org_number}</h4>
                                     </div>
                                 }
                             </h4>

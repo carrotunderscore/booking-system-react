@@ -41,12 +41,12 @@ export default function DeleteForm() {
                     {...register('email')} />
                 <p className="error-message">{errors.email?.message}</p>
 
-                Personal ID / Company ID:
+                Person-nummer / Organisations-nummer:
                 <input type="text" name="socialID" className="delete-input-form"
                     {...register('socialID')} />
                 <p className="error-message">{errors.socialID?.message}</p>
 
-                Password:
+                Lösenord:
                 <input type="password" name="password" className="delete-input-form"
                     {...register('password', { required: "You must enter a password." })} />
                 <p className="error-message">{errors.password?.message}</p>
