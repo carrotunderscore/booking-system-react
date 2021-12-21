@@ -7,13 +7,6 @@ import getEmailFromToken from "../utils/CustomerUtils";
 
 
 export default function RegisterPage() {
-    const customerEmail = getEmailFromToken();
-
-    if (customerEmail == null) {
-        return <Navigate to="/"/>
-    }
- 
-
     return (
         <div>
             <RegisterForm/>
