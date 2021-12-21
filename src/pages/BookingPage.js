@@ -5,12 +5,13 @@ import {FloatingLabel, Form} from "react-bootstrap";
 import axios from "axios";
 import getEmailFromToken from "../utils/CustomerUtils";
 import {Navigate} from "react-router-dom";
-import Payment from "../components/Payment";
+import PaymentModal from "../components/PaymentModal";
 
 export default function BookingPage() {
     const customerEmail = getEmailFromToken();
     const {minDate, maxDate} = getMinAndMaxDate();
 
+    const [modalShow, setModalShow] = useState(false);
     const [customer, setCustomer] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [dateTimeSelected, setDateTimeSelected] = useState("");
@@ -56,7 +57,11 @@ export default function BookingPage() {
             price: price,
             message: customerMessage,
         }).then((result) => {
-            alert(result.data);
+            if (result.data == "Fail") {
+                alert("Bokning kunde ej slutföras. Försök igen");
+            } else {
+                setModalShow(true);
+            }
         }).catch(e => console.log(e));
     }
 
@@ -188,9 +193,10 @@ export default function BookingPage() {
                 </Card.Body>
             </Card>
         </div>
-
-        <Payment/>
-
+        <PaymentModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+        />
     </>);
 }
 

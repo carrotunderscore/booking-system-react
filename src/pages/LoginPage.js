@@ -11,6 +11,8 @@ import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "../styling/colors.css";
 import "../styling/LoginPage.css";
+import {Link, Navigate} from "react-router-dom";
+import getEmailFromToken from "../utils/CustomerUtils";
 
 const schema = yup.object().shape({
     mail: yup.string().required("Mail is required."),
@@ -18,6 +20,8 @@ const schema = yup.object().shape({
 });
 
 export default function LoginPage() {
+    const customerEmail = getEmailFromToken();
+
     // Cookies
     const [cookies, setCookie] = useCookies(["gdpr"]);
 
@@ -56,10 +60,18 @@ export default function LoginPage() {
                 /*if (response.data === "OK") {
                     console.log("Success!")
                 }*/
+
             })
-            .catch(errors => (console.log(errors)))
+            .catch(errors => (console.log(errors)));
+
+
+
     }
 
+
+    if (customerEmail != null) {
+        return <Navigate to="/home"/>
+    }
     return (
         <>
             <div className="login-main-div">
@@ -85,10 +97,12 @@ export default function LoginPage() {
                                         className="buttonLogin background-positive-secondary">
                                     Logga in
                                 </Button>
-                                <Button variant="primary" type="button"
-                                        className="buttonRegister background-positive-secondary">
-                                    Registrera
-                                </Button>
+                                <Link to="/register">
+                                    <Button variant="primary" type="button"
+                                            className="buttonRegister background-positive-secondary">
+                                        Registrera
+                                    </Button>
+                                </Link>
                             </div>
                         </Form>
                     </div>
