@@ -5,6 +5,7 @@ import {FloatingLabel, Form} from "react-bootstrap";
 import axios from "axios";
 import getEmailFromToken from "../utils/CustomerUtils";
 import {Navigate} from "react-router-dom";
+import Payment from "../components/Payment";
 
 export default function BookingPage() {
     const customerEmail = getEmailFromToken();
@@ -35,7 +36,6 @@ export default function BookingPage() {
                 break;
             default:
                 break;
-
         }
     }
 
@@ -48,28 +48,26 @@ export default function BookingPage() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        axios
-            .post("http://localhost:3001/bookcleaning", {
-                customerID: customer.customer_id,
-                startDateTime: dateTimeSelected,
-                adress: customerAdress,
-                serviceType: serviceType.value,
-                price: price,
-                message: customerMessage,
-            })
-            .then((result) => {
-                alert(result.data);
-            }).catch(e => console.log(e));
+        axios.post("http://localhost:3001/bookcleaning", {
+            customerID: customer.customer_id,
+            startDateTime: dateTimeSelected,
+            adress: customerAdress,
+            serviceType: serviceType.value,
+            price: price,
+            message: customerMessage,
+        }).then((result) => {
+            alert(result.data);
+        }).catch(e => console.log(e));
     }
 
     const getCustomerByEmail = () => {
-        axios
-            .post("http://localhost:3001/getcustomer", {customerEmail: customerEmail})
+        axios.post("http://localhost:3001/getcustomer", {customerEmail: customerEmail})
             .then((response) => {
                 setCustomer(response.data[0]);
                 setIsLoading(false);
             });
     }
+
     useEffect(() => {
         getCustomerByEmail();
     }, []);
@@ -82,149 +80,118 @@ export default function BookingPage() {
         return <></>;
     }
 
-    return (
-        <>
-            <div className="d-flex justify-content-center my-5">
-                <Card className="text-center w-50">
-                    <Card.Header className="background-positive-primary text-color-light">
-                        Booking
-                    </Card.Header>
-                    <Card.Body className="background-secondary d-flex flex-column align-items-center">
-                        <Form
-                            onSubmit={handleSubmit}
-                            className="w-50 justify-content-center"
-                        >
-                            <Form.Group
-                                className="mb-3"
-                                controlId="formBasicCustomerID"
-                            >
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="KundID"
-                                >
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="KundID"
-                                        className="text-color-dark"
-                                        value={customer.customer_id}
-                                        disabled
-                                    />
-                                </FloatingLabel>
-                            </Form.Group>
-
-                            <Form.Group
-                                className="mb-2"
-                                controlId="formBasicDate"
-                            >
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Datum"
-                                >
-                                    <Form.Control
-                                        type="datetime-local"
-                                        placeholder="Date"
-                                        className="text-color-dark"
-                                        onChange={(event) =>
-                                            handleDateTime(event.target.value)
-                                        }
-                                        min={
-                                            minDate.toLocaleDateString(
-                                                "se-SE"
-                                            ) + "T00:00"
-                                        }
-                                        max={
-                                            maxDate.toLocaleDateString(
-                                                "se-SE"
-                                            ) + "T23:59"
-                                        }
-                                        required
-                                    />
-                                </FloatingLabel>
-                            </Form.Group>
-
-                            <Form.Group
-                                className="mb-3"
-                                controlId="formBasicAdress"
-                            >
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Adress"
+    return (<>
+        <div className="d-flex justify-content-center my-5">
+            <Card className="text-center w-50">
+                <Card.Header className="background-positive-primary text-color-light">
+                    Booking
+                </Card.Header>
+                <Card.Body className="background-secondary d-flex flex-column align-items-center">
+                    <Form
+                        onSubmit={handleSubmit}
+                        className="w-50 justify-content-center">
+                        <Form.Group
+                            className="mb-3"
+                            controlId="formBasicCustomerID">
+                            <FloatingLabel
+                                controlId="floatingInput"
+                                label="KundID">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="KundID"
                                     className="text-color-dark"
-                                >
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Adress"
-                                        onChange={(e) =>
-                                            setCustomerAdress(e.target.value)
-                                        }
-                                    />
-                                </FloatingLabel>
-                            </Form.Group>
+                                    value={customer.customer_id}
+                                    disabled/>
+                            </FloatingLabel>
+                        </Form.Group>
 
-                            <Form.Group
-                                className="mb-3"
-                                controlId="formBasicSelect"
-                            >
-                                <FloatingLabel
-                                    controlId="floatingSelect"
+                        <Form.Group
+                            className="mb-2"
+                            controlId="formBasicDate">
+                            <FloatingLabel controlId="floatingInput" label="Datum">
+                                <Form.Control
+                                    type="datetime-local"
+                                    placeholder="Date"
                                     className="text-color-dark"
-                                    label="Service"
-                                >
-                                    <Form.Select
-                                        value={serviceType.value}
-                                        aria-label="Service"
-                                        className="text-color-dark"
-                                        onChange={handleServiceTypeChange}
-                                    >
-                                        <option value="window">
-                                            Fönstertvätt (1h)
-                                        </option>
-                                        <option value="basic">
-                                            Basic städning (2h)
-                                        </option>
-                                        <option value="top">
-                                            Top städning (3h)
-                                        </option>
-                                        <option value="diamond">
-                                            Diamant städning (4h)
-                                        </option>
-                                    </Form.Select>
-                                </FloatingLabel>
-                            </Form.Group>
+                                    onChange={(event) => handleDateTime(event.target.value)}
+                                    min={minDate.toLocaleDateString("se-SE") + "T00:00"}
+                                    max={maxDate.toLocaleDateString("se-SE") + "T23:59"}
+                                    required/>
+                            </FloatingLabel>
+                        </Form.Group>
 
-                            <Form.Group>
-                                <FloatingLabel
-                                    controlId="floatingTextarea"
+                        <Form.Group
+                            className="mb-3"
+                            controlId="formBasicAdress">
+                            <FloatingLabel
+                                controlId="floatingInput"
+                                label="Adress"
+                                className="text-color-dark">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Adress"
+                                    onChange={(e) => setCustomerAdress(e.target.value)}/>
+                            </FloatingLabel>
+                        </Form.Group>
+
+                        <Form.Group
+                            className="mb-3"
+                            controlId="formBasicSelect">
+                            <FloatingLabel
+                                controlId="floatingSelect"
+                                className="text-color-dark"
+                                label="Service">
+                                <Form.Select
+                                    value={serviceType.value}
+                                    aria-label="Service"
                                     className="text-color-dark"
-                                    label="Meddelande"
-                                >
-                                    <Form.Control
-                                        as="textarea"
-                                        placeholder="Lämna ett meddelande här"
-                                        style={{height: "100px"}}
-                                        onChange={(e) =>
-                                            setCustomerMessage(e.target.value)
-                                        }
-                                    />
-                                </FloatingLabel>
-                            </Form.Group>
-                            <Card.Subtitle className="mt-3 text-color-dark">Price: {price}</Card.Subtitle>
-                            <Form.Group>
+                                    onChange={handleServiceTypeChange}>
+                                    <option value="window">
+                                        Fönstertvätt (1h)
+                                    </option>
+                                    <option value="basic">
+                                        Basic städning (2h)
+                                    </option>
+                                    <option value="top">
+                                        Top städning (3h)
+                                    </option>
+                                    <option value="diamond">
+                                        Diamant städning (4h)
+                                    </option>
+                                </Form.Select>
+                            </FloatingLabel>
+                        </Form.Group>
 
-                                <Button
-                                    type="submit"
-                                    variant="primary"
-                                    className="background-positive-secondary mt-3"
-                                >
-                                    BOKA STÄDNING
-                                </Button>
-                            </Form.Group>
-                        </Form>
-                    </Card.Body>
-                </Card>
-            </div>
-        </>
-    );
+                        <Form.Group>
+                            <FloatingLabel
+                                controlId="floatingTextarea"
+                                className="text-color-dark"
+                                label="Meddelande">
+                                <Form.Control
+                                    as="textarea"
+                                    placeholder="Lämna ett meddelande här"
+                                    style={{height: "100px"}}
+                                    onChange={(e) => setCustomerMessage(e.target.value)}/>
+                            </FloatingLabel>
+                        </Form.Group>
+                        <Card.Subtitle className="mt-3 text-color-dark">Price: {price}</Card.Subtitle>
+                        <Form.Group>
+
+                            <Button
+                                type="submit"
+                                variant="primary"
+                                className="background-positive-secondary mt-3">
+                                BOKA STÄDNING
+                            </Button>
+                        </Form.Group>
+                    </Form>
+                </Card.Body>
+            </Card>
+        </div>
+
+        <Payment/>
+
+    </>);
 }
 
 function formatToSqlDateTime(dateTimeSelected) {
@@ -233,15 +200,7 @@ function formatToSqlDateTime(dateTimeSelected) {
 
 function getMinAndMaxDate() {
     const today = new Date();
-    const minDate = new Date(
-        today.getFullYear(),
-        today.getMonth(),
-        today.getDate() + 2
-    );
-    const maxDate = new Date(
-        minDate.getFullYear() + 2,
-        minDate.getMonth(),
-        minDate.getDate()
-    );
+    const minDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 2);
+    const maxDate = new Date(minDate.getFullYear() + 2, minDate.getMonth(), minDate.getDate());
     return {minDate, maxDate};
 }

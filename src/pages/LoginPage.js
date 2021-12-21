@@ -64,7 +64,7 @@ export default function LoginPage() {
         <>
             <div className="login-main-div">
                 <div className="bg-div">
-                    <div className="loginFormDiv w-25 mx-auto flex p-3 background-positive-primary">
+                    <div className="loginFormDiv w-25 mx-auto flex-column p-3 background-positive-primary">
                         <Form onSubmit={handleSubmit(submitForm)} className="login-form p-3" action="../../post"
                               method="post">
                             <Form.Group className="mb-3 text-color-light" controlId="formBasicEmail">

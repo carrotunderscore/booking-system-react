@@ -23,6 +23,7 @@
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.3",
     "react-cookie": "^4.1.1",
+    "react-credit-cards": "^0.8.3",
     "react-dom": "^17.0.2",
     "react-dropdown-timepicker": "^1.0.4",
     "react-hook-form": "^7.21.2",
