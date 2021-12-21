@@ -43,6 +43,15 @@ export default function CustomerBookingsPage({ customer }) {
     /* console.log(sliceDate); */
     return sliceDate;
   }
+
+  function hasPaid(paid) {
+    if (paid > 0) {
+      return "ja";
+    }
+
+    return "nej";
+  }
+
   return (
     <div>
       {bookingsList.map((booking, index) => {
@@ -62,7 +71,7 @@ export default function CustomerBookingsPage({ customer }) {
 
                   <Row>
                     <Col>Typ av Service : {booking.service_type}</Col>
-                    <Col>Har betalt : {booking.paid}</Col>
+                    <Col>Har betalt : {hasPaid(booking.paid)}</Col>
                   </Row>
                 </Container>
                 <Card.Text></Card.Text>
