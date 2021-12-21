@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Spinner, Card, Button } from "react-bootstrap";
+import { Spinner, Card, Button, Container, Col, Row } from "react-bootstrap";
 
 export default function CustomerBookingsPage({ customer }) {
   const [bookingsList, setbookingsList] = useState([]);
@@ -48,19 +48,25 @@ export default function CustomerBookingsPage({ customer }) {
       {bookingsList.map((booking, index) => {
         return (
           <div key={booking.booking_id}>
-            <Card className="mb-3" style={{ width: "18rem" }}>
+            <Card className="mb-3" style={{ width: "30rem" }}>
               <Card.Body>
                 <Card.Title>#{booking.booking_id}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
                   {formatDate(booking.start_date_time)}
                 </Card.Subtitle>
-                <Card.Text>
-                  Adress : {booking.adress}
-                  <br />
-                  Pris : {booking.price}
-                  <br />
-                  Typ av Service : {booking.service_type}
-                </Card.Text>
+                <Container>
+                  <Row>
+                    <Col>Adress : {booking.adress}</Col>
+                    <Col>Pris : {booking.price}</Col>
+                  </Row>
+
+                  <Row>
+                    <Col>Typ av Service : {booking.service_type}</Col>
+                    <Col>Har betalt : {booking.paid}</Col>
+                  </Row>
+                </Container>
+                <Card.Text></Card.Text>
+
                 <Button
                   variant="danger"
                   onClick={() => deleteBooking(booking.booking_id)}
