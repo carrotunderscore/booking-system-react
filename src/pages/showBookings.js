@@ -30,27 +30,27 @@ export default function ShowBookings() {
                     <div className="customer-bookings-div">
                       
                         <div className="customer-bookings-box">
-                            <h3>Name: {booking.first_name + " " + booking.last_name}</h3>
-                            <h4>Adress: {booking.adress}</h4>
-                            <h4>Date: {
+                            <h3 className="booking-field" >Name: {booking.first_name + " " + booking.last_name}</h3>
+                            <h4 className="booking-field">Adress: {booking.adress}</h4>
+                            <h4 className="booking-field">Date: {
                             booking.start_date_time.split("T").map((line, index) => (
                                 (index === 1) ? 
                                 <div>{line.substr(0, 5)}</div> :
                                 <div>{line.substr(0, 10)}</div>
                             ))}</h4>
                             
-                            <h4>E-mail: {booking.mail}</h4>
-                            <h4>Service: {booking.service_type}</h4>
-                            <h4>Price: {booking.price} KR</h4>
-                            <h4>Message: {booking.message}</h4>
+                            <h4 className="booking-field">E-mail: {booking.mail}</h4>
+                            <h4 className="booking-field">Service: {booking.service_type}</h4>
+                            <h4 className="booking-field">Price: {booking.price} KR</h4>
+                            <h4 className="booking-field"> Message: {booking.message}</h4>
 
-                            <h4>Status: {
+                            <h4 className="booking-field">Status: {
                             (booking.status === 1) ? 
                             <div> Done </div> :
                             <div> Not started</div>
                             }</h4>
 
-                            <h4>{
+                            <h4 className="booking-field">{
                                 (booking.is_company === 0) ?
                                     <div className="alert alert-danger" role="alert">
                                         Customer-type: Private

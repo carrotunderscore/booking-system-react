@@ -41,25 +41,25 @@ export default function AdminPage() {
     return (
         <div className="admin-main-div">
             <div className="register-customer-div">
-                <h1>Register customer</h1>
+                <h1 className="admin-title">Register customer</h1>
                 <input type="submit" value="show-register" onClick={onClickRegister} />
                 {showRegister !== false ? <RegisterForm /> : null}
                 
             </div>
             <div className="delete-customer-div">
-                <h1>Delete customer</h1>
+                <h1 className="admin-title">Delete customer</h1>
                 <input type="submit" value="show-register" onClick={onClickDelete} />
                 {showDelete !== false ? <DeleteForm /> : null}
                 
             </div>
             <div className="book-customer-div">
-                <h1>Book customer</h1>
+                <h1 className="admin-title">Book customer</h1>
                 <input type="submit" value="show-booking" onClick={onClickBooking} />
                 {showBooking !== false ? <BookCleaning /> : null}
             </div>
 
             <div className="book-customer-div">
-                <h1>Book customer</h1>
+                <h1 className="admin-title">Book customer</h1>
                 <input type="submit" value="show-booking" onClick={onClickBookingList} />
                 {showBookingList !== false ? <ShowBookings /> : null}
             </div>

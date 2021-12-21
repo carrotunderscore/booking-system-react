@@ -9,8 +9,9 @@ AdminPage.js--------------------------------------------------------------------
     border-top: 70px solid #9fbceb;
     display: flex;
     justify-content: space-evenly;
+    overflow: 'auto';
 }
-h1{
+.admin-title{
     color: #123a7a;
 }
 .register-customer-div{
