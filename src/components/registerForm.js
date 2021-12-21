@@ -26,7 +26,7 @@ export default function RegisterForm() {
 
     const submitForm = (data) => {
         console.log(data)
-        axios.post("http://localhost:3001/registerCustomer", data )
+        axios.post("http://localhost:3001/registerCustomer", data)
             .then(() => {
                 console.log("Success!")
             })
@@ -37,63 +37,61 @@ export default function RegisterForm() {
         <div className="register-main-div">
             <form onSubmit={handleSubmit(submitForm)} className="register-form"
                 action="../../post" method="post">
-                    <h1>Register</h1>
+                <h1>Registrera</h1>
                 <div className="name-div">
-                    First name:
+                    <p>Förnamn:</p>
                     <input className="register-form-field" type="text" name="firstName"
                         {...register('firstName')} placeholder="First Name..." />
                     <p className="error-message">{errors.firstName?.message}</p>
 
-                    Last name:
+                    <p>Efternamn:</p>
                     <input className="register-form-field" type="text" name="lastName"
                         {...register('lastName')} />
                     <p className="error-message">{errors.lastName?.message}</p>
 
-                    E-mail:
+                    <p>E-mail:</p>
                     <input className="register-form-field" type="text" name="email"
                         {...register('email')} />
                     <p className="error-message">{errors.email?.message}</p>
 
-                    Phone number:
-                    <input  className="register-form-field" type="text" name="phoneNumber"
+                    <p>Telefon-nummer:</p>
+                    <input className="register-form-field" type="text" name="phoneNumber"
                         {...register('phoneNumber')} />
                     <p className="error-message">{errors.phoneNumber?.message}</p>
 
-                    Personal ID / Company ID:
+                    <p>Personnummer / Organisations-nummer:</p>
                     <input className="register-form-field" type="text" name="socialID"
                         {...register('socialID')} />
                     <p className="error-message">{errors.socialID?.message}</p>
 
-                </div>
-                <div className="company-div">
-                    Password:
+                    <p>Lösenord:</p>
                     <input className="register-form-field" type="password" name="password"
                         {...register('password', { required: "You must enter a password." })} />
                     <p className="error-message">{errors.password?.message}</p>
 
-                    Repeat password:
+                    <p>Upprepa lösenord:</p>
                     <input className="register-form-field" type="password" name="repeatPassword"
                         {...register('password', { required: "Passwords must be identical." })} />
                     <p className="error-message">{errors.confirmPassword && "Passwords must be identical"}</p>
 
-                    Company name (Optional):
-                    <input className="register-form-field" type="text" name="companyName" 
-                    {...register('companyName')}  />
-
-                    Address:
+                    <p>Företags-namn (Valfritt):</p>
+                    <input className="register-form-field" type="text" name="companyName"
+                        {...register('companyName')} />
+                    <br/>
+                    <p>Address:</p>
                     <input className="register-form-field" type="text" name="address"
                         {...register('address')} />
                     <p className="error-message">{errors.address?.message}</p>
 
-                    Customer-type
+                    <p>Kund-typ</p>
                     <select className="customerType" name="customerType" id="customer-type"
                         {...register('customerType')}>
-                        <option value="0">Company</option>
-                        <option value="1">Private</option>
+                        <option value="0">Företag</option>
+                        <option value="1">Privat</option>
                     </select>
                     <p>{errors.customerType?.message}</p>
 
-                    <input className="register-form-field" type="submit" value="Submit" className="register-submit" />
+                    <input type="submit" value="Submit" className="register-submit" />
                 </div>
 
             </form >

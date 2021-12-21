@@ -20,11 +20,11 @@ class Header extends Component {
 
                         <Col>
                             <div className="HeaderLinks text-end mt-4">
-                                <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/">HOME</Link>
+                                <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/">Hem</Link>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/book">BOOK</Link>
+                                <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/book">Bokning</Link>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/register">REGISTER</Link>
+                                <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/register">Registrera</Link>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/admin">ADMIN</Link>
                             </div>
