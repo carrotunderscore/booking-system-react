@@ -11,11 +11,14 @@ import RegisterForm from "../components/registerForm";
 import BookCleaning from "../components/bookCleaning";
 import DeleteForm from "../components/DeleteForm";
 import ShowBookings from "./showBookings";
+import getEmailFromToken from "../utils/CustomerUtils";
+import {Navigate} from "react-router-dom";
 
 
 
 
 export default function AdminPage() {
+    const customerEmail = getEmailFromToken();
 
     const [showRegister, setShowRegister] = React.useState(false)
     const onClickRegister = () => {
@@ -36,6 +39,10 @@ export default function AdminPage() {
     const onClickBookingList = () => {
         if(showBookingList === true){setShowBookingList(false)}
         else{setShowBookingList(true)}
+    }
+
+    if (customerEmail == null) {
+        return <Navigate to="/"/>
     }
 
     return (

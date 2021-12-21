@@ -13,14 +13,14 @@ class Header extends Component {
                 <div className="Header column container-fluid background-positive-primary text-color-light pt-1">
                     <Row>
                         <Col>
-                            <h1 style={{fontFamily: "'Poppins', sans-serif"}}>Städfirman AB</h1>
+                            <h1 className="text-color-light" style={{fontFamily: "'Poppins', sans-serif"}}>Städfirman AB</h1>
                         </Col>
 
                         <Col/>
 
                         <Col>
                             <div className="HeaderLinks text-end mt-4">
-                                <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/">HOME</Link>
+                                <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/home">HOME</Link>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/book">BOOK</Link>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
