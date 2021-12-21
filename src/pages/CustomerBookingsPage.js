@@ -48,7 +48,7 @@ export default function CustomerBookingsPage({ customer }) {
       {bookingsList.map((booking, index) => {
         return (
           <div key={booking.booking_id}>
-            <Card className="mb-3" style={{ width: "18rem" }}>
+            <Card className="mb-3" style={{ width: "40rem" }}>
               <Card.Body>
                 <Card.Title>#{booking.booking_id}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
@@ -60,6 +60,8 @@ export default function CustomerBookingsPage({ customer }) {
                   Pris : {booking.price}
                   <br />
                   Typ av Service : {booking.service_type}
+                  <br />
+                  Betalning : {booking.paid}
                 </Card.Text>
                 <Button
                   variant="danger"
