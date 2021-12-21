@@ -12,20 +12,18 @@ RegisterPage.js-----------------------------------------------------------------
     padding-left: 50px;
 }
 
-input[type=text] {
+.name-div {
     padding: 10px;
     margin: 10px 10px;
     border-radius: 40px 10px;
     width: 90%;
-    background-color: #9fbceb;
 }
 
-input[type=password] {
+.company-div {
     padding: 10px;
     margin: 10px 10px;
     border-radius: 40px 10px;
     width: 90%;
-    background-color: #9fbceb;
 }
 
 .register-submit {
@@ -47,7 +45,7 @@ input[type=password] {
     width: 80%;
 }
 
-select {
+.customerType {
     background-color: #fefffd;
     display: block;
     margin: auto;

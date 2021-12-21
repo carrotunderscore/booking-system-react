@@ -23,11 +23,8 @@ showBookings.js-----------------------------------------------------------------
     margin-right: 300px;
     text-align: center
   }
-  h3{
-    color: #123a7a;
-    font-style: italic;
-  }
-  h4{
+ 
+  .booking-field{
     border: 3px solid #9fbceb;
     border-radius: 40px 10px;
     margin: 3px;

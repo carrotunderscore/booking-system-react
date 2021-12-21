@@ -86,7 +86,7 @@ export default function RegisterForm() {
                     <p className="error-message">{errors.address?.message}</p>
 
                     Customer-type
-                    <select name="customerType" id="customer-type"
+                    <select className="customerType" name="customerType" id="customer-type"
                         {...register('customerType')}>
                         <option value="0">Company</option>
                         <option value="1">Private</option>
