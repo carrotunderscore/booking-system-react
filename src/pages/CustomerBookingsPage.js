@@ -61,7 +61,7 @@ export default function CustomerBookingsPage({ customer }) {
                   <br />
                   Typ av Service : {booking.service_type}
                   <br />
-                  Betalning : {booking.paid}
+                  Har betalt : {booking.paid}
                 </Card.Text>
                 <Button
                   variant="danger"
