@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import '../../src/index.css';
 import axios from "axios";
 import * as yup from "yup";
@@ -11,6 +11,8 @@ import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "../styling/colors.css";
 import "../styling/LoginPage.css";
+import {Link, Navigate} from "react-router-dom";
+import getEmailFromToken from "../utils/CustomerUtils";
 
 const schema = yup.object().shape({
     mail: yup.string().required("Mail is required."),
@@ -18,6 +20,9 @@ const schema = yup.object().shape({
 });
 
 export default function LoginPage() {
+    const [customerEmail, setCustomerEmail] = useState(getEmailFromToken());
+
+
     // Cookies
     const [cookies, setCookie] = useCookies(["gdpr"]);
 
@@ -47,8 +52,9 @@ export default function LoginPage() {
         console.log(data)
         axios.post("http://localhost:3001/login", data)
             .then((response) => {
-                console.log(response.data)
-                document.cookie = `auth=${response.data}`
+                console.log(response.data);
+                document.cookie = `auth=${response.data}`;
+                setCustomerEmail(getEmailFromToken());
                 //localStorage.setItem('key', 'value')
                 //localStorage.setItem("auth", response.data)
                 //localStorage.setItem("auth", JSON.stringify(response.data))
@@ -56,10 +62,18 @@ export default function LoginPage() {
                 /*if (response.data === "OK") {
                     console.log("Success!")
                 }*/
+
             })
-            .catch(errors => (console.log(errors)))
+            .catch(errors => (console.log(errors)));
+
+
+
     }
 
+
+    if (customerEmail != null) {
+        return <Navigate to="/home"/>
+    }
     return (
         <>
             <div className="login-main-div">
@@ -85,10 +99,12 @@ export default function LoginPage() {
                                         className="buttonLogin background-positive-secondary">
                                     Logga in
                                 </Button>
-                                <Button variant="primary" type="button"
-                                        className="buttonRegister background-positive-secondary">
-                                    Registrera
-                                </Button>
+                                <Link to="/register">
+                                    <Button variant="primary" type="button"
+                                            className="buttonRegister background-positive-secondary">
+                                        Registrera
+                                    </Button>
+                                </Link>
                             </div>
                         </Form>
                     </div>

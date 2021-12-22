@@ -4,6 +4,10 @@ import {Col, Row} from "react-bootstrap";
 
 class Header extends Component {
     render() {
+
+        function logout() {
+            document.cookie = "auth=";
+        }
         return (
             <>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -27,6 +31,8 @@ class Header extends Component {
                                 <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/register">Registrera</Link>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/admin">ADMIN</Link>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/admin" onClick={logout}>Logga ut</Link>
                             </div>
                         </Col>
                     </Row>
