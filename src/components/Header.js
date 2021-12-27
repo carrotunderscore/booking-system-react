@@ -32,7 +32,7 @@ class Header extends Component {
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/admin">ADMIN</Link>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/admin" onClick={logout}>Logga ut</Link>
+                                <Link style={{color: "#FEFFFD", textDecoration: "none"}} to="/" onClick={logout}>Logga ut</Link>
                             </div>
                         </Col>
                     </Row>
